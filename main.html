@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl</title>
+		<title>three.js webgl - interactive - voxel painter</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="/main.af46ece4.css">
+		<link type="text/css" rel="stylesheet" href="main.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-		<style>body {
+		<style>
+			body {
 				background-color: #f0f0f0;
 				color: rgb(175, 34, 34);
 			}
 			a {
 				color: #08f;
-			}</style>
-	<script src="/main.af46ece4.js"></script></head>
+			}
+		</style>
+	</head>
 	<body>
 
 		<div id="info">
@@ -54,7 +56,7 @@
 				// cubes
 
 				cubeGeo = new THREE.BoxBufferGeometry( 50, 50, 50 );
-				cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( './textures/square-outline-textured.png' ) } );
+				cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, /*map: new THREE.TextureLoader().load( './textures/square-outline-textured.png' )*/ } );
 				
 				// grid
 
@@ -81,13 +83,7 @@
 
 				var directionalLight = new THREE.DirectionalLight( 0xffffff );
 				directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
-				sunLight.position.set( 5, 7, - 1 );
-				sunLight.lookAt( scene.position );
-				scene.add( sunLight );
 
-				lightPosition4D.x = sunLight.position.x;
-				lightPosition4D.y = sunLight.position.y;
-				lightPosition4D.z = sunLight.position.z;
 				scene.add( directionalLight );
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
